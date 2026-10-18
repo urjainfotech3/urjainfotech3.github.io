@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.superoverchase.game",
+      "sha256_cert_fingerprints": [
+        "7B:CE:C5:37:7E:58:67:E2:05:A7:DF:63:C2:E5:08:43:7F:92:EE:B5:9B:E9:E5:26:22:56:F2:89:93:BF:E5:B7"
+      ]
+    }
+  }
+]
