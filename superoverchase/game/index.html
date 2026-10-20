@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Over Chase · Cricket game for Android</title>
+<meta name="description" content="Super Over Chase is a fast 3D cricket game where every ball counts. 60 levels, 5 bats, daily challenges and live commentary in English, Hindi and Gujarati. Coming soon to Google Play.">
+<meta property="og:title" content="Super Over Chase">
+<meta property="og:description" content="A fast 3D cricket game where every ball counts. Coming soon to Google Play.">
+<meta property="og:image" content="images/banner.jpg">
+<meta name="theme-color" content="#0B1426">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1426; --panel:#121E35; --panel-2:#17264A; --line:#24365C;
+  --text:#F5EFE6; --muted:#A9B4C8; --gold:#FBB829; --green:#3FBF7F; --red:#E04848;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Barlow,system-ui,sans-serif;font-size:17px;line-height:1.55}
+a{color:var(--gold)}
+img,video{display:block;max-width:100%;height:auto}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-size:14px}
+h1,h2,h3{font-family:Poppins,sans-serif;margin:0;line-height:1.15}
+h2{font-size:26px;margin-bottom:8px}
+h3{font-size:17px}
+p{margin:0}
+section{padding:40px 0 8px}
+.lead{color:var(--muted);max-width:620px}
+
+/* hero */
+.hero{padding-top:34px;padding-bottom:10px;text-align:center}
+.hero h1{font-size:44px;margin:8px 0 6px}
+.hero h1 span{color:var(--gold)}
+.hero .lead{margin:0 auto}
+.soon{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 18px;border-radius:999px;background:var(--gold);color:#0B1426;font-weight:700}
+.soon svg{width:18px;height:18px}
+.links{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:9px 18px;border:1.5px solid var(--line);border-radius:999px;color:var(--text);text-decoration:none;font-weight:600;font-size:15px}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.banner{margin:26px auto 0;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+
+/* video + steps */
+.play{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:center;margin-top:18px}
+.phone{border:2px solid var(--gold);border-radius:28px;overflow:hidden;background:#000;aspect-ratio:540/1196;max-width:300px;margin:0 auto;width:100%}
+.phone video{width:100%;height:100%;object-fit:cover}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#0B1426;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:20px;display:grid;place-items:center}
+.steps p{color:var(--muted);font-size:15px;margin-top:2px}
+.bowl{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{padding:4px 12px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--text)}
+
+/* screenshots */
+.shots{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 2px 16px;-webkit-overflow-scrolling:touch}
+.shots figure{margin:0;flex:0 0 200px;scroll-snap-align:start}
+.shots img{border-radius:14px;border:1px solid var(--line);aspect-ratio:9/16;object-fit:cover;width:100%}
+.hint{color:var(--muted);font-size:14px}
+
+/* career */
+.stages{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.stages li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center}
+.stages b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:13px;letter-spacing:.1em;color:var(--gold)}
+.stages span{display:block;font-weight:700;font-size:15px;line-height:1.25;margin-top:2px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card p{color:var(--muted);font-size:15px;margin-top:6px}
+.card .tag{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--gold)}
+.ico{width:26px;height:26px;color:var(--gold);margin-bottom:8px}
+
+/* fair play */
+.fair{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}
+.fair ul{margin:12px 0 0;padding-left:20px;color:var(--muted)}
+.fair li{margin:6px 0}
+.fair strong{color:var(--text)}
+
+.more{display:flex;gap:14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px;text-decoration:none;color:var(--text)}
+.more:hover{border-color:var(--gold)}
+.more .knight{flex:none;width:52px;height:52px;border-radius:12px;background:#5E9E33;display:grid;place-items:center}
+.more p{color:var(--muted);font-size:15px}
+
+footer{margin-top:44px;padding-top:26px;padding-bottom:40px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:15px}
+footer p+p{margin-top:8px}
+
+@media (max-width:760px){
+  .hero h1{font-size:36px}
+  .play{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stages{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:460px){
+  .grid{grid-template-columns:1fr}
+  .shots figure{flex-basis:170px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div class="eyebrow">Android game · by Urja Infotech</div>
+  <h1>Super Over <span>Chase</span></h1>
+  <p class="lead">A fast 3D cricket game where every ball counts. You're the batter in the final over, with the target on the board.</p>
+  <div class="soon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    Coming soon to Google Play
+  </div>
+  <div class="links">
+    <a class="btn" href="#how">How to play</a>
+    <a class="btn" href="https://urjainfotech3.github.io/superoverchase/">Privacy policy</a>
+  </div>
+  <img class="banner" src="images/banner.jpg" width="1024" height="500" alt="Super Over Chase: Cricket chase game. Tap, swipe, win!">
+</header>
+
+<main class="wrap">
+
+  <section id="how">
+    <div class="eyebrow">How you play</div>
+    <h2>Read the bowler. Time your tap.</h2>
+    <div class="play">
+      <div class="phone">
+        <video src="images/gameplay.mp4" poster="images/gameplay-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Gameplay: a last-over chase ending in a six"></video>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><span class="num">1</span><div><h3>Aim your shot</h3><p>Tap left, centre or right to go leg side, straight or off side.</p></div></li>
+          <li><span class="num">2</span><div><h3>Tap for safe, swipe up to loft</h3><p>A tap keeps it on the ground. Swipe up to go over the fielders, but they can catch it.</p></div></li>
+          <li><span class="num">3</span><div><h3>Find the gaps</h3><p>A live field map shows the open gaps in yellow along the rope.</p></div></li>
+        </ol>
+        <div class="bowl" aria-label="Bowling variety">
+          <span class="chip">Fast</span><span class="chip">Spin</span><span class="chip">Yorkers</span><span class="chip">Bouncers</span><span class="chip">Slower balls</span><span class="chip">Wide yorkers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Screenshots</div>
+    <h2>Every ball counts</h2>
+    <div class="shots" role="list">
+      <figure role="listitem"><img src="images/shot-batting.jpg" alt="Batter at the crease facing a spinner, needing 30 off 12" loading="lazy" width="540" height="960"></figure>
+      <figure role="listitem"><img src="images/shot-four.jpg" alt="A perfectly timed shot lofted to cover for four" loading="lazy" width="540" height="960"></figure>
+      <figure role="listitem"><img src="images/shot-plan.jpg" alt="Level briefing: chase 30 off 12 with 3 wickets" loading="lazy" width="540" height="960"></figure>
+      <figure role="listitem"><img src="images/shot-replay.jpg" alt="Big-match replay of a six under the floodlights" loading="lazy" width="540" height="960"></figure>
+      <figure role="listitem"><img src="images/shot-win.jpg" alt="Chase complete screen with stars and coins earned" loading="lazy" width="540" height="960"></figure>
+      <figure role="listitem"><img src="images/shot-home.jpg" alt="Home screen with career, bat shop and daily challenge" loading="lazy" width="540" height="960"></figure>
+    </div>
+    <p class="hint">Swipe to see more →</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Career</div>
+    <h2>60 levels, from club nets up</h2>
+    <p class="lead">Chases grow from 6 balls to 18 balls, and every 10th level is a tougher stage final.</p>
+    <ol class="stages">
+      <li><b>1–10</b><span>Club Nets</span></li>
+      <li><b>11–20</b><span>District</span></li>
+      <li><b>21–30</b><span>State</span></li>
+      <li><b>31–40</b><span>Super League</span></li>
+      <li><b>41–50</b><span>Legends Cup</span></li>
+      <li><b>51–60</b><span>World Final</span></li>
+    </ol>
+    <div class="facts">
+      <span class="chip">★ Up to 3 stars a level · 180 in total</span>
+      <span class="chip">● Coins for runs, wins and missions</span>
+      <span class="chip">×2 combo on 3 scoring balls, ×3 on 6</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Kit shop</div>
+    <h2>Five bats, five perks</h2>
+    <p class="lead">Spend your coins on bats and six jersey colours, from India Blue to Midnight.</p>
+    <div class="grid">
+      <div class="card"><h3>Willow Classic</h3><p>Free and balanced. Your first bat.</p></div>
+      <div class="card"><h3>Sweet Spot</h3><p>A wider perfect-timing window.</p></div>
+      <div class="card"><h3>Power Blade</h3><p>Well-timed lofts clear the rope more often.</p></div>
+      <div class="card"><h3>Long Handle</h3><p>Mistimed lofts are caught less often.</p></div>
+      <div class="card"><h3>Pro Edition</h3><p>Wider window, extra power and safer lofts.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Game modes</div>
+    <h2>Something to play every day</h2>
+    <div class="grid">
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+        <h3>Career</h3><p>60 levels across 6 stages, each with a star target.</p></div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <h3>Daily challenge</h3><p>A new chase every day, plus a daily streak bonus and a free coin spin.</p></div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="16" r="3"/><path d="M10.5 10.5l3 3M14 6h4v4M10 18H6v-4"/></svg>
+        <h3>Challenge a friend</h3><p>Send a link. You both face the exact same over.</p></div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+        <h3>Practice over</h3><p>Try new shots with nothing to lose.</p></div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>
+        <h3>Missions</h3><p>Extra goals that pay out bonus coins.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Features</div>
+    <h2>Made to feel like the real last over</h2>
+    <div class="grid">
+      <div class="card"><h3>Live commentary</h3><p>In English, हिन्दी and ગુજરાતી.</p></div>
+      <div class="card"><h3>Fully offline</h3><p>No internet needed to play.</p></div>
+      <div class="card"><h3>Big-match replays</h3><p>Watch your best shots again under the lights.</p></div>
+      <div class="card"><h3>Celebrations</h3><p>Trophies and confetti when you win, flying stumps when you're out.</p></div>
+      <div class="card"><h3>Free hits</h3><p>A wide gives you a free hit, and combo streaks multiply coins.</p></div>
+      <div class="card"><h3>Share your result</h3><p>Turn any finish into a picture card to send to friends.</p></div>
+      <div class="card"><h3>Two camera views</h3><p>Batter view or bowler view.</p></div>
+      <div class="card"><h3>Day and night</h3><p>Play in a day or floodlit night stadium.</p></div>
+      <div class="card"><h3>Light on your phone</h3><p>Auto graphics quality and a battery saver mode.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Fair play</div>
+    <h2>Free to play. Never pay to win.</h2>
+    <div class="fair">
+      <p><strong>Ads never interrupt an over.</strong> Every bat can be earned with coins.</p>
+      <ul>
+        <li>Optional rewarded videos: a second chance, extra balls, double coins, a bat trial or a daily spin.</li>
+        <li>Small banners only on menu and result screens.</li>
+        <li>An occasional ad between matches.</li>
+        <li><strong>Remove ads</strong> with a one-time purchase of ₹199.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Also from Urja Infotech</div>
+    <a class="more" href="https://urjainfotech3.github.io/chessbuddies/">
+      <span class="knight" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"><path d="M6 21h12l-1-3-2-1c1-4 2-7 1-10S12 3 9 3L8 1 7 4C5 5 4 6.5 3.5 9L3 12c0 1 1.5 1.6 2.5 1l2-1.5c1-.3 1.8.2 1.4 1.6C8.3 15 6.5 17 7 19z"/></svg></span>
+      <div><h3>Chess Buddies</h3><p>The friendliest way for children to learn and play chess, in 11 Indian languages.</p></div>
+    </a>
+  </section>
+
+  <section>
+    <div class="eyebrow">Contact</div>
+    <h2>Questions or ideas?</h2>
+    <p class="lead">Email us at <a href="mailto:urjainfotech3@gmail.com">urjainfotech3@gmail.com</a>. We reply within a few working days.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>© 2026 Urja Infotech · <a href="https://urjainfotech3.github.io/superoverchase/">Privacy policy</a></p>
+</footer>
+
+</body>
+</html>
