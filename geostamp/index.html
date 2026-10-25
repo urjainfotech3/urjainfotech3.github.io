@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeoStamp – GPS photo stamp for site proof</title>
+<meta name="description" content="GeoStamp prints the address, GPS location, date and time on every photo, and saves the location inside the photo file. Made for solar installers, contractors and field teams. No login.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Urja Infotech">
+<meta property="og:url" content="https://urjainfotech3.github.io/geostamp/">
+<meta property="og:title" content="GeoStamp – GPS photo stamp for site proof">
+<meta property="og:description" content="Address, GPS, date and time on every photo. Daily PDF report. Works in the field. No login.">
+<meta property="og:image" content="https://urjainfotech3.github.io/geostamp/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GeoStamp: a site photo with address, GPS, date and time stamped on it">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://urjainfotech3.github.io/geostamp/og-image.jpg">
+<link rel="canonical" href="https://urjainfotech3.github.io/geostamp/">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Noto+Sans:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f3ec; --surface:#ffffff; --text:#16202b; --muted:#5a6573; --line:#e2ded2;
+  --accent:#12324a; --accent-soft:#e3edf3; --gold:#b97800; --chip:#fff4d6; --chip-text:#7a4f00;
+  --head:"Poppins",system-ui,sans-serif;
+  --body:"Noto Sans","Noto Sans Gujarati","Noto Sans Devanagari",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1517; --surface:#162124; --text:#eef3f1; --muted:#9db0ad; --line:#26363a;
+    --accent:#8cc4e6; --accent-soft:#17303d; --gold:#ffb627; --chip:#3a2e10; --chip-text:#ffd677;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1517; --surface:#162124; --text:#eef3f1; --muted:#9db0ad; --line:#26363a;
+  --accent:#8cc4e6; --accent-soft:#17303d; --gold:#ffb627; --chip:#3a2e10; --chip-text:#ffd677;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body)}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--accent)}
+.wrap{max-width:52rem;margin:0 auto;padding:0 16px}
+.top{padding:20px 0 4px;font-size:14px}
+.top a{text-decoration:none;font-weight:600}
+.title{display:flex;align-items:center;gap:14px;margin:12px 0 6px}
+.title img{width:64px;height:64px;flex:none}
+.title h1{margin:0}
+figure{margin:16px 0}
+figure img{border-radius:14px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:14px;margin-top:6px}
+.hero{padding:16px 0 8px}
+.chip{display:inline-block;font:600 12px/1 var(--body);letter-spacing:.04em;padding:6px 10px;border-radius:99px;background:var(--chip);color:var(--chip-text)}
+h1{font:700 clamp(30px,6vw,42px)/1.15 var(--head);margin:12px 0 6px;text-wrap:balance}
+.kind{color:var(--muted);margin:0 0 12px}
+.lead{font-size:18px;margin:0 0 16px;max-width:40rem}
+.banner{border-radius:18px;margin:8px 0 18px;border:1px solid var(--line)}
+.local{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:0 0 18px}
+.local p{margin:2px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:12px;font:600 15px/1 var(--body);text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);min-height:44px}
+.btn.main{background:var(--accent);color:var(--bg)}
+.btn svg{width:18px;height:18px}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:16px 0}
+h2{font:700 21px/1.25 var(--head);margin:0 0 8px}
+section ul{margin:0;padding-left:1.15em}
+section li{margin:4px 0}
+.note{color:var(--muted);font-size:15px;margin:10px 0 0}
+.grid{display:grid;gap:16px}
+@media (min-width:760px){.grid{grid-template-columns:1fr 1fr}.grid section{margin:0}}
+footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top"><a href="../">← Urja Infotech</a></nav>
+
+  <header class="hero">
+    <span class="chip">Testing now · Launching soon</span>
+    <div class="title"><img src="icon-180.png" alt="GeoStamp app icon" width="64" height="64"><h1>GeoStamp</h1></div>
+    <p class="kind">Business · For solar installers, contractors and field teams</p>
+    <p class="lead">A camera that prints the address, GPS location, date and time on every photo, and saves the location inside the photo file too. Made for site proof. No login.</p>
+    <img class="banner" src="banner.jpg" alt="GeoStamp banner with a real site photo stamped with address, date, time and photo ID" width="1024" height="500">
+    <div class="local">
+      <p lang="gu">દરેક ફોટા પર સરનામું, GPS લોકેશન, તારીખ અને સમય. સાઇટ પ્રૂફ માટે, ઇન્ટરનેટ વગર પણ.</p>
+      <p lang="hi">हर फोटो पर पता, GPS लोकेशन, तारीख और समय। साइट प्रूफ के लिए, बिना इंटरनेट भी।</p>
+    </div>
+    <div class="btns">
+      <!-- PLAY: when live, replace the Join testers button with <a class="btn main" href="https://play.google.com/store/apps/details?id=PACKAGE_NAME&referrer=utm_source%3Dwebsite">Google Play</a> -->
+      <a class="btn main" href="mailto:urjainfotech3@gmail.com?subject=GeoStamp%20tester"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>Join testers</a>
+      <a class="btn" href="privacy.html">Privacy policy</a>
+    </div>
+    <p class="note">Testers: email us from your Google Play account and we will add you to the test.</p>
+  </header>
+
+  <figure>
+    <img src="real-photo.jpg" alt="Real photo taken with GeoStamp: rooftop solar panels, stamped with the road address, date and time, photo ID and a company logo" width="1200" height="900" loading="lazy">
+    <figcaption>A real photo taken with GeoStamp, with the company's own logo on the stamp. The coordinates are blurred here for privacy.</figcaption>
+  </figure>
+
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li>Live camera with the address and GPS shown before you shoot</li>
+      <li>3 stamp styles: Classic, Compact and Site Report</li>
+      <li>Change the stamp size, darkness and position (top or bottom)</li>
+      <li>Photo shape 4:3 or 16:9, in Standard or High quality</li>
+      <li>Pinch to zoom, tap to focus</li>
+      <li>Your company logo, project name and a default note on every stamp (My stamp)</li>
+      <li>Photos saved in Gallery › Pictures/GeoStamp, with a separate folder for each project</li>
+      <li>Option to also keep the original photo without a stamp</li>
+      <li>Location also saved inside the photo file (EXIF), so Google Photos and Maps can read it</li>
+      <li>Each photo gets a unique ID (GS-XXXXXXXX)</li>
+      <li>Verify a photo: checks whether a photo is unchanged since GeoStamp saved it (on the phone that took it)</li>
+      <li>Reports: today's photos as a PDF, and all photo locations as CSV (Excel) or KML (Google Earth)</li>
+    </ul>
+  </section>
+
+  <div class="grid">
+    <section>
+      <h2>Built for trust</h2>
+      <ul>
+        <li>A warning is printed on the photo if a fake-GPS app is used</li>
+        <li>A warning if the phone clock is wrong, with GPS time printed instead</li>
+        <li>If the location is not fresh, the stamp says how old it is</li>
+        <li>Never loses a photo: if stamping fails, the photo is still saved</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Works in the field</h2>
+      <ul>
+        <li>Coordinates work without internet; the address fills in once you are online</li>
+        <li>Light app (under 1 MB) that runs on low-cost phones</li>
+        <li>Android 10 or newer</li>
+        <li>No login, no account</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="grid" style="margin-top:16px">
+    <section>
+      <h2>Permissions</h2>
+      <ul>
+        <li><strong>Camera:</strong> to take photos</li>
+        <li><strong>Location:</strong> only while the app is open, never in the background</li>
+        <li><strong>Internet:</strong> only to look up the address for a location</li>
+        <li>No storage permission needed</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Your privacy</h2>
+      <ul>
+        <li>Photos, project details and the photo log stay on your phone</li>
+        <li>To show an address, only the GPS coordinates are sent to an address service</li>
+        <li>No ads, no analytics, no account</li>
+      </ul>
+      <p class="note">Full details are in the <a href="privacy.html">privacy policy</a>.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>Questions or ideas? <a href="mailto:urjainfotech3@gmail.com">urjainfotech3@gmail.com</a></p>
+    <p>© 2026 Urja Infotech · Kachchh, Gujarat, India · <a href="../">All our apps</a></p>
+  </footer>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a43e99d96c0543bb9a76567e6b6e359e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
